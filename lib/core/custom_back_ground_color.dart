@@ -19,7 +19,7 @@ class CustomBackGroundColor extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Positioned.fill(
-            child: Image.asset(Assets.imagesGradientImage, fit: BoxFit.fill),
+            child: Image.asset(Assets.gradinet, fit: BoxFit.fill),
           ),
           child
         ],

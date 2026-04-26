@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/styles.dart';
-import 'package:quiz_app/presentation/views/widgets/custom_back_ground_color.dart';
+import 'package:quiz_app/core/widgets/custom_back_ground_color.dart';
 import 'package:quiz_app/presentation/views/widgets/start_quiz_button.dart';
 
 class WelcomeViewBody extends StatelessWidget {
