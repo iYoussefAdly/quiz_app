@@ -26,6 +26,7 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
   );
   static final font16Medium = TextStyle(
+    color: Colors.white,
     fontSize: 16,
     fontFamily: 'Gilroy',
     fontWeight: FontWeight.w500,

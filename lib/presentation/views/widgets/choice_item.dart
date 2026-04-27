@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/styles.dart';
 
-class UnselectedQuestionItem extends StatelessWidget {
-  const UnselectedQuestionItem({super.key});
+class ChoiceItem extends StatelessWidget {
+  const ChoiceItem({super.key});
 
   @override
   Widget build(BuildContext context) {
