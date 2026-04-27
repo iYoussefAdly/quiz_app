@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/styles.dart';
-import 'package:quiz_app/presentation/quiz_view.dart';
+import 'package:quiz_app/presentation/views/quiz_view.dart';
 
 class StartQuizButton extends StatelessWidget {
   const StartQuizButton({super.key});

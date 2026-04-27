@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/core/assets.dart';
 import 'package:quiz_app/core/styles.dart';
+import 'package:quiz_app/data/models/question_model.dart';
 import 'package:svg_flutter/svg.dart';
 
 class QuestionNumber extends StatelessWidget {
-  const QuestionNumber({
-    super.key,
-  });
-
+  const QuestionNumber({super.key, required this.question});
+  final QuestionModel question;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,9 +20,9 @@ class QuestionNumber extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SvgPicture.asset(Assets.question1),
+          SvgPicture.asset(question.questionImage),
           SizedBox(width: 8),
-          Text('Question 1', style: Styles.font12Regular),
+          Text(question.questionNumber, style: Styles.font12Regular),
         ],
       ),
     );
