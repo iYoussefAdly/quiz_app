@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/styles.dart';
 import 'package:quiz_app/data/models/question_model.dart';
-import 'package:quiz_app/presentation/views/widgets/choice_item_view.dart';
+import 'package:quiz_app/presentation/views/widgets/multi_choice_item_view.dart';
+import 'package:quiz_app/presentation/views/widgets/single_choice_item_view.dart';
 import 'package:quiz_app/presentation/views/widgets/question_number.dart';
 
 class QustionItem extends StatelessWidget {
@@ -12,14 +13,15 @@ class QustionItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        QuestionNumber(question: question,),
+        QuestionNumber(question: question),
         SizedBox(height: 16),
-        Text(
-          question.title,
-          style: Styles.font24Mediium,
-        ),
+        Text(question.title, style: Styles.font24Mediium),
         SizedBox(height: 32),
-        Expanded(child: ChoiceItemView(choices: question.choices,)),
+        Expanded(
+          child: question.isSingleChoice
+              ? SingleChoiceItemView(choices: question.choices)
+              : MultiChoiceItemView(choices: question.choices),
+        ),
       ],
     );
   }

@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String frame1 = 'assets/images/Frame 1.svg';
   static const String gradinet = 'assets/images/GRADINET.png';
   static const String pushB = 'assets/images/PUSH B.svg';
   static const String question1 = 'assets/images/question1.svg';

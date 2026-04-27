@@ -12,7 +12,20 @@ class QuizViewBody extends StatefulWidget {
 }
 
 class _QuizViewBodyState extends State<QuizViewBody> {
-  int currentIndex = 0;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomBackGroundColor(
@@ -24,20 +37,31 @@ class _QuizViewBodyState extends State<QuizViewBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 30),
-              Expanded(child: QustionItem(question: questions()[currentIndex])),
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: questions().length,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: QustionItem(question: questions()[index]),
+                  ),
+                ),
+              ),
               ActionButtons(
                 onBack: () {
-                  if (currentIndex > 0) {
-                    setState(() {
-                    currentIndex--;  
-                    });
+                  if (_pageController.page! > 0) {
+                    _pageController.previousPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
                   }
                 },
                 onNext: () {
-                  if (currentIndex < questions().length-1) {
-                    setState(() {
-                      currentIndex++;
-                    });
+                  if (_pageController.page! < questions().length - 1) {
+                    _pageController.nextPage(
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
                   }
                 },
               ),
